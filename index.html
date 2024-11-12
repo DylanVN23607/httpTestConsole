@@ -51,7 +51,11 @@
             })
             .catch(error => {
                 console.error("Error:", error);
-                messageDiv.textContent = "Error: " + error.message;
+				if (error.message=='Failed to fetch') {
+					messageDiv.textContent = 'Server might not be active right now.'
+				} else {
+					messageDiv.textContent = "Error: " + error.message;
+				}
             });
         }
     </script>
